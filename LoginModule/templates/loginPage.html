@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	{% load static %}
+
+   <link rel="stylesheet" type="text/css" href="{% static 'LoginModule/loginpage.css' %}">
+  <meta charset="UTF-8">
+  <title>Login Page</title>  
+</head>
+
+<body>
+<div class="hero-image">
+  <div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Log In</label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<form action="/loginModule/authLogin/" method="POST">{% csrf_token %}
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="user" type="text" class="input" name="username">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password" name="password">
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Log In">
+				</div>
+				</form>
+				<form action="/registrationModule/register/">{% csrf_token %}
+				<div class="group">
+					<input type="submit" class="button" value="Register">
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+  
+  
+
+</body>
+
+</html>

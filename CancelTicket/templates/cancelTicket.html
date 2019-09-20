@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Cancel Ticket</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'CancelTicket/cancelTicket1.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'CancelTicket/cancelTicket2.css' %}">
+    </head>
+    <body>
+		<div class="topnav">
+			<a href="/bookTicket/homePage/">Home</a>
+			<a href="/bookTicket/showTrains/">Book Ticket</a>
+			<a class="active" href="/cancelTicket/ticketCancellation/">Cancel Ticket</a>
+			<a href="/showBookingDetails/showTicketDetails/">Show Booking Details</a>
+			<a href="/logoutModule/logout/" align="right">Logout</a>
+		</div>
+
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100 p-t-30 p-b-50">
+                    <span class="login100-form-title p-b-41">
+                        Cancel Booking
+                    </span>
+                    <form class="login100-form validate-form p-b-33 p-t-5" action="/cancelTicket/validateCancellation/" method="POST">{% csrf_token %}
+                        <div class="wrap-input100 validate-input" data-validate = "Enter username">
+                            <div class="aab">Enter PNR Number:</div>
+                            <input class="input100" type="text" name="pnr_number" required="true">
+                        </div>
+                        <div class="container-login100-form-btn m-t-32">
+                            <input type="Submit" value="Confirm Cancellation" class="login100-form-btn">
+                               
+                            </input>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="dropDownSelect1"></div>
+    </body>
+</html>

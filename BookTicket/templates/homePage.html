@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+		{% load static %}
+	<title>Book Ticket</title>
+   <link rel="stylesheet" type="text/css" href="{% static 'BookTicket/homepage.css' %}">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="bg-image"></div>
+
+<div class="topnav">
+  <a class="active" href="/bookTicket/homePage/">Home</a>
+  <a href="/bookTicket/showTrains/">Book Ticket</a>
+  <a href="/cancelTicket/ticketCancellation/">Cancel Ticket</a>
+  <a href="/showBookingDetails/showTicketDetails/">Show Booking Details</a>
+  <a href="/logoutModule/logout/" align="right">Logout</a>
+</div>
+<div class="container-login100">
+</div>
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
+

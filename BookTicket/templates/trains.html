@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Book Ticket</title>
+        <meta charset="UTF-8">
+        		{% load static %}
+
+   <link rel="stylesheet" type="text/css" href="{% static 'BookTicket/trains.css' %}">
+
+    </head>
+    <body>
+		<div class="topnav">
+			<a href="/bookTicket/homePage/">Home</a>
+			<a class="active" href="/bookTicket/showTrains/">Book Ticket</a>
+			<a href="/cancelTicket/ticketCancellation/">Cancel Ticket</a>
+			<a href="/showBookingDetails/showTicketDetails/">Show Booking Details</a>
+			<a href="/logoutModule/logout/" align="right">Logout</a>
+		</div>
+
+        <div class="limiter">
+            <div class="container-login100">
+				{% for e in trainDetails %}
+					<div class="box">
+						<div class="box-1">
+						<form action="/bookTicket/finalBooking/?trainNo={{e.0}}" method="POST">{% csrf_token %}
+						<table border=1>
+							<tr>
+								<th colspan=3 class="heading">Train Details</th>
+								<th colspan=2 class="heading">{{e.3}}</th>
+								<th colspan=2 class="heading">{{e.6}}</th>
+								<th colspan=2 class="heading">Avialable</th>
+								<th colspan=2 class="heading">Price</th>
+								<th class="heading">Total Passenger</th>
+								<td rowspan=3>
+										<div class="box-2">
+										<input type="submit" value="BOOK NOW" class="mybutton"></input>
+									</div>
+								</td>
+								
+							</tr>
+							<tr>
+								<th><div class="heading-1">No.</div></th>
+								<th><div class="heading-1">Name</div></th>
+								<th><div class="heading-1">Type</div></th>
+								<th><div class="heading-1">Arr.</div></th>
+								<th><div class="heading-1">Dept.</div></th>
+								<th><div class="heading-1">Arr.</div></th>
+								<th><div class="heading-1">Dept</div></th>
+								<th><div class="heading-1">CC</div></th>
+								<th><div class="heading-1">2S</div></th>
+								<th><div class="heading-1">CC</div></th>
+								<th><div class="heading-1">2S</div></th>
+								<td rowspan=2 align="center">
+										<select name="pno" class="myselect" required="true">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+										</select>
+									
+								</td>
+								
+							</tr>
+							<tr>
+								<td align="center"><div class="data">{{e.0}}</div></td>
+								<td align="center"><div class="data">{{e.1}}</div></td>
+								<td align="center"><div class="data">{{e.2}}</div></td>
+								<td align="center"><div class="data">{{e.4}}</div></td>
+								<td align="center"><div class="data">{{e.5}}</div></td>
+								<td align="center"><div class="data">{{e.7}}</div></td>
+								<td align="center"><div class="data">{{e.8}}</div></td>
+								<td align="center"><div class="data">{{e.9}}</div></td>
+								<td align="center"><div class="data">{{e.10}}</div></td>
+								<td align="center"><div class="data">{{e.11}}</div></td>
+								<td align="center"><div class="data">{{e.12}}</div></td>
+								
+							</tr>
+						</table>
+								</form>
+						</div>
+					</div>
+				{% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

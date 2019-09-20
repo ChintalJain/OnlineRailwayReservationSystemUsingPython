@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		{% load static %}
+        <title>Book Ticket</title>
+        <meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'BookTicket/bookingdetails.css' %}">
+    </head>
+    <body>
+		<div class="topnav">
+			<a href="/bookTicket/homePage/">Home</a>
+			<a class="active" href="/bookTicket/showTrains/">Book Ticket</a>
+			<a href="/cancelTicket/ticketCancellation/">Cancel Ticket</a>
+			<a href="/showBookingDetails/showTicketDetails/">Show Booking Details</a>
+			<a href="/logoutModule/logout/" align="right">Logout</a>
+		</div>
+
+        <div class="limiter">
+            <div class="container-login100">
+				<div class="box">
+					<div class="box-1">
+					<table border=1 width="100%">
+					<tr>
+						<th colspan=4 class="heading" align="left">Ticket Details :-</th>
+					</tr>
+					<tr>
+						<td colspan=2 class="heading-1">PNR NUMBER :- </td>
+						<td colspan=2 class="data-1">{{ticket.PNRno}}</td>
+					</tr>
+					<tr>
+						<td colspan=2 class="heading-1">Train Number :-</td>
+						<td colspan=2 class="data-1">{{ticket.trainNo.trainNo}}</td>
+					</tr>
+					<tr>
+						<td colspan=2 class="heading-1">Train Name :-</td>
+						<td colspan=2 class="data-1">{{ticket.trainNo.trainName}}</td>
+					</tr>
+					<tr>
+						<td colspan=2 class="heading-1">Date of Journey :-</td>
+						<td colspan=2 class="data-1">{{ticket.doj.date}}</td>
+					</tr>
+					<tr>
+						<td colspan=2 class="heading-1">Total Price :-</td>
+						<td colspan=2 class="data-1">{{ticket.totalPrice}}</td>
+					</tr>
+					<tr>
+						<td colspan=2 class="heading-1" align="center">Source :- {{source.stationID.statinName}}</td>
+						<td colspan=2 class="heading-1" align="center">Destination :- {{destination.stationID.statinName}}</td>
+					</tr>
+					<tr>
+						<td class="data-1">Arrival</td>
+						<td class="data-1">Departure</td>
+						<td class="data-1">Arrival</td>
+						<td class="data-1">Departure</td>
+					</tr>
+					<tr>
+						<td class="data-1">{{source.arrival}}</td>
+						<td class="data-1">{{source.departure}}</td>
+						<td class="data-1">{{destination.arrival}}</td>
+						<td class="data-1">{{destination.departure}}</td>
+					</tr>
+					</table>
+					</div>
+				</div>
+				<span class="login100-form-title p-b-41">
+							PASSENGER DETAILS :-
+                </span>
+                {% for e in plist %}
+				<div class="pbox">
+						<table border="1" width="100%">
+							<tr><th colspan=10 class="heading-1" align="left">Passenger No. {{ forloop.counter }} :-</th></tr>
+							<tr>
+								<td class="heading-1">Name</td>
+								<td class="data-1">{{e.name}}</td>
+								<td class="heading-1">Age :</td>
+								<td class="data-1">{{e.age}}</td>
+								<td class="heading-1">Gender :</td>
+								<td class="data-1">{{e.gender}}</td>
+								<td class="heading-1">Coach No. :</td>
+								<td class="data-1">{{e.coachNo}}</td>
+								<td class="heading-1">Seat No. :</td>
+								<td class="data-1">{{e.seatNo}}</td>
+							</tr>
+						</table>
+					</div>
+				{% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
+
+
+

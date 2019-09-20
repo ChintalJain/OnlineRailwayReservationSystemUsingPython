@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Book Ticket</title>
+        <meta charset="UTF-8">
+        		{% load static %}
+
+   <link rel="stylesheet" type="text/css" href="{% static 'BookTicket/showTrains.css' %}">
+
+    </head>
+    <body>
+		<div class="topnav">
+			<a href="/bookTicket/homePage/">Home</a>
+			<a class="active" href="/bookTicket/showTrains/">Book Ticket</a>
+			<a href="/cancelTicket/ticketCancellation/">Cancel Ticket</a>
+			<a href="/showBookingDetails/showTicketDetails/">Show Booking Details</a>
+			<a href="/logoutModule/logout/" align="right">Logout</a>
+		</div>
+
+        <div class="limiter">
+            <div class="container-login100">
+				<div class="box">
+					<form action="/bookTicket/trains/" method="POST">{% csrf_token %}
+						<div class="group">
+							<label for="source" class="label">FROM</label>
+							<select id="source" class="select" name="from" required="true">
+								<option value="ADI">ADI-Ahmedabad</option>
+								<option value="ND">ND-Nadiad</option>
+								<option value="ANND">ANND-Anand</option>
+								<option value="BRC">BRC-Vadodara</option>
+								<option value="BH">BH-Bharuch</option>
+								<option value="ST">ST-Surat</option>
+								<option value="BIM">BIM-Bilimora</option>
+								<option value="ADI">NVS-Navsari</option>
+								<option value="ADI">VAPI-Vapi</option>
+								<option value="ADI">BOR-Boisar</option>
+								<option value="ADI">BVI-Borivali</option>
+								<option value="ADI">MMCT-Mumbai Central</option>
+								<option value="BL">BL-Valsad</option>
+							</select>
+						</div>
+						<div class="group">
+							<label for="dest" class="label">TO</label>
+							<select id="dest" class="select" name="to" required="true">
+								<option value="ADI">ADI-Ahmedabad</option>
+								<option value="ND">ND-Nadiad</option>
+								<option value="ANND">ANND-Anand</option>
+								<option value="BRC">BRC-Vadodara</option>
+								<option value="BH">BH-Bharuch</option>
+								<option value="ST">ST-Surat</option>
+								<option value="BIM">BIM-Bilimora</option>
+								<option value="ADI">NVS-Navsari</option>
+								<option value="ADI">VAPI-Vapi</option>
+								<option value="ADI">BOR-Boisar</option>
+								<option value="ADI">BVI-Borivali</option>
+								<option value="ADI">MMCT-Mumbai Central</option>
+								<option value="BL">BL-Valsad</option>
+							</select>
+						</div>
+						</br>
+						<div class="group">
+							<label for="date" class="label">DATE</label>
+							<input type="date" id="dest" class="select" name="doj" required="true"></input>
+						</div>
+						</br></br>
+						<div class="group">
+							<input type="submit" class="button" value="Show Trains">
+						</div>				
+					</form>
+				</div>
+            </div>
+        </div>
+    </body>
+</html>

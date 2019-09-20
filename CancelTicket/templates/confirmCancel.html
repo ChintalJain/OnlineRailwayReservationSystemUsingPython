@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cancel Ticket</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'CancelTicket/confirmCancel.css' %}"></head>
+<body>	
+	<div class="limiter">
+
+<div class="topnav">
+	<a href="/bookTicket/homePage/">Home</a>
+	<a href="/bookTicket/showTrains/">Book Ticket</a>
+	<a class="active" href="/cancelTicket/ticketCancellation/">Cancel Ticket</a>
+	<a href="/showBookingDetails/showTicketDetails/">Show Booking Details</a>
+	<a href="/logoutModule/logout/" align="right">Logout</a>
+</div>
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					Your Cancellation Has Been Confimed!!
+					Refund will Be creadited To your account as soon as possible...
+				</span>
+				<div class="login100-form validate-form p-b-33 p-t-5">
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<div class="aab">
+								PNR Number :-{{pnr}}
+								</br>
+								Refund:-{{tp}}
+								</br>
+								
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+
+   <link rel="stylesheet" type="text/css" href="{% static 'RegistrationModule/registration.css' %}">
+	<title>
+		Registration Form
+	</title>
+</head>
+<body>
+
+<div class="hero-image">
+  <form action="/registrationModule/authRegistration/" method="POST">{% csrf_token %}
+	  <table align="center">
+		  <tr>
+			  <th align="Left">
+				  <label for="uname">USERNAME *:</label>
+			  </th>
+			  <td align="right">
+				  <input type="text" id="uname" name="username" placeholder="Username" required="true">
+			  </td>
+		  </tr>
+		  <tr>
+			  <th align="Left">
+				  <label for="pass">PASSWORD *:</label>
+			  </th>
+			  <td align="right">
+				  <input type="password" id="pass" name="password" placeholder="Password" required="true">
+			  </td>
+		  </tr>
+		  <tr>
+			  <th align="Left">
+				  <label for="cpass">CONFIRM PASSWORD *:</label>
+			  </th>
+			  <td align="right">
+				  <input type="password" id="cpass" name="confpass" placeholder="Confirm Password" required="true">
+			  </td>
+		  </tr>
+		  <tr>
+			  <td colspan=4  align="Left">
+				  <h3>PERSONAL DETAILS :-</h3>
+			  </td>
+		  </tr>
+		  <tr>
+			  <th align="Left">
+				  <label for="fname">FIRST NAME *:</label>
+			  </th>
+			  <td align="right">
+				  <input type="text" id="fname" name="firstname" required="true">
+			  </td>
+			  <th align="Left">
+				  <label for="lname">LAST NAME *:</label>
+			  </th>
+			  <td align="right">
+				  <input type="text" id="lname" name="lastname" required="true">
+			  </td>
+		  </tr>
+		  <tr>
+			  <th align="Left">
+				  <label for="gender">GENDER *:</label>
+			  </th>
+			  <td>
+				  <input type="radio" id="gender" name="gender" required="true" value="Male">MALE
+			  </td>
+			  <td>
+				  <input type="radio" id="gender" name="gender" required="true"  value="Female">FEMALE
+			  </td>
+		  </tr>
+		  <tr>
+			  <th align="Left">
+				  <label for="dob">DATE OF BIRTH *:</label>
+			  </th>
+			  <td align="right">
+				  <input type="date" id="dob" name="dateofbirth" required="true">
+			  </td>
+		  </tr>
+		  <tr>
+			  <th align="Left">
+				  <label for="cno">CONTACT NUMBER *:</label>
+			  </th>
+			  <td align="right">
+				  <input type="text" id="cno" name="contactnumber" required="true">
+			  </td>
+			  <th align="Left">
+				  <label for="email">EMAIL ID *:</label>
+			  </th>
+			  <td align="right">
+				  <input type="text" id="email" name="emailid" required="true">
+			  </td>
+		  </tr>
+		  
+		  
+		  <tr><td colspan=4 align="center"><input type="submit" value="Register"></td></tr>
+    </table>
+  </form>
+</div>
+
+</body>
+</html>

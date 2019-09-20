@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Book Ticket</title>
+        <meta charset="UTF-8">
+        		{% load static %}
+
+   <link rel="stylesheet" type="text/css" href="{% static 'BookTicket/finalbooking.css' %}">
+
+    </head>
+    <body>
+		<div class="topnav">
+			<a href="/bookTicket/homePage/">Home</a>
+			<a class="active" href="/bookTicket/showTrains/">Book Ticket</a>
+			<a href="/cancelTicket/ticketCancellation/">Cancel Ticket</a>
+			<a href="/showBookingDetails/showTicketDetails/">Show Booking Details</a>
+			<a href="/logoutModule/logout/" align="right">Logout</a>
+		</div>
+
+        <div class="limiter">
+            <div class="container-login100">
+				<form action="/bookTicket/bookingDetails/" method="POST">{% csrf_token %}
+				<div class="box">
+					<div class="box-1">
+					<table border=1>
+						<tr>
+							<th class="heading">Train No.</th>
+							<th class="heading">Source</th>
+							<th class="heading">Destination</th>
+							<th class="heading">Date Of Journey</th>
+							<th class="heading">No. OF Passengers</th>
+							<th class="heading">Class</th>
+						</tr>
+						<tr>
+							<th class="heading">{{tno}}</th>
+							<th class="heading">{{s}}</th>
+							<th class="heading">{{d}}</th>
+							<th class="heading">{{doj}}</th>
+							<th class="heading">{{pno}}</th>
+							<th class="heading">
+								<select name="class" class="myselect" required="true">
+									<option value="CC">CC</option>
+									<option value="2S">2S</option>
+								</select>
+									</th>
+						</tr>
+					</table>
+					</div>
+				</div>
+				{% for e in tpno %}
+					<div class="pbox">
+						<table>
+							<tr><th colspan=6 class="heading-1" align="left">Passenger No. {{e.0}} Details:-</th></tr>
+							<tr>
+								<td class="data-1">Name </td>
+								<td class="data-1"><input class="mytext" type="text" name="name{{e.0}}" required="true"></input></td>
+								<td class="data-1">Age </td>
+								<td class="data-1"><input class="mytext" type="text" name="age{{e.0}}" required="true"></input></td>
+								<td class="data-1">Gender </td>
+								<td class="data-1"><select class="mytext" name="gen{{e.0}}" required="true">
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+					</div>	
+				{% endfor %}
+				<div class="group"><input type="submit" class="button" value="Book Now!!"></input>
+				</div>
+				</form>			
+            </div>
+        </div>
+    </body>
+</html>
+
